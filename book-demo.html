@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Jenga App</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/fav/site.webmanifest" />
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <!-- <link rel="stylesheet" href="assets/css/meanmenu.css" /> -->
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
+    <link rel="stylesheet" href="assets/css/backtotop.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-pro.css" />
+    <link rel="stylesheet" href="assets/css/spacing.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an
+        <strong>outdated</strong>
+        browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a>
+        to improve your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- pre loader area start -->
+    <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <!-- loading content here -->
+          <div class="preloader__content text-center">
+            <div class="preloader__logo">
+              <img src="assets/images/logo.svg" alt="" />
+            </div>
+            <div id="tp-loading-bar" class="preloader__bar">
+              <div id="tp-loading-line" class="preloader__bar-inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pre loader area end -->
+
+    <!-- back to top start -->
+    <div class="back-to-top-wrapper">
+      <button id="back_to_top" type="button" class="back-to-top-btn">
+        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <!-- back to top end -->
+
+    <!-- header area start -->
+    <header>
+      <div class="header__area header__transparent header__black">
+        <div class="header__top d-none d-lg-block header__bottom-border">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-10">
+                <div class="header__info">
+                  <ul>
+                    <li>
+                      <a href="tel: +254 (0) 719 439 168">
+                        <span>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.4616 2.24996C5.48313 2.24997 5.50491 2.24998 5.52697 2.24998C5.5473 2.24998 5.56737 2.24998 5.58717 2.24997C5.91931 2.24982 6.17764 2.24971 6.41634 2.29183C7.31576 2.45055 8.07769 3.04545 8.44981 3.87952C8.54857 4.10087 8.61111 4.35152 8.69153 4.67378C8.69632 4.69299 8.70118 4.71246 8.70611 4.73219L9.11973 6.38666L9.12878 6.42285C9.26887 6.98313 9.38776 7.45864 9.44494 7.86151C9.50582 8.2904 9.50758 8.70015 9.37068 9.12067C9.23377 9.54119 8.99111 9.87136 8.6894 10.1822C8.40599 10.4742 8.02993 10.7886 7.58684 11.159L7.55823 11.1829L5.946 12.5308C7.24931 14.8902 9.10979 16.7507 11.4692 18.054L12.8171 16.4417L12.841 16.4131C13.2114 15.97 13.5258 15.594 13.8178 15.3106C14.1286 15.0089 14.4588 14.7662 14.8793 14.6293C15.2998 14.4924 15.7096 14.4941 16.1385 14.555C16.5413 14.6122 17.0169 14.7311 17.5772 14.8712L17.6133 14.8802L19.2678 15.2939C19.2875 15.2988 19.307 15.3036 19.3262 15.3084C19.6484 15.3889 19.8991 15.4514 20.1204 15.5502C20.9545 15.9223 21.5494 16.6842 21.7081 17.5836C21.7503 17.8223 21.7501 18.0807 21.75 18.4128C21.75 18.4326 21.75 18.4527 21.75 18.473C21.75 18.4951 21.75 18.5168 21.75 18.5384C21.7502 18.9214 21.7504 19.2236 21.6838 19.5215C21.4417 20.6054 20.4384 21.5156 19.336 21.6514C19.0336 21.6886 18.7738 21.6631 18.4505 21.6314C18.4351 21.6299 18.4195 21.6284 18.4037 21.6268C15.7641 21.3693 13.3884 20.7099 11.3191 19.6701C8.24498 18.1255 5.87444 15.755 4.32982 12.6808C3.29011 10.6116 2.63066 8.2359 2.37312 5.59624C2.37158 5.58049 2.37005 5.5649 2.36854 5.54945C2.33685 5.22622 2.31138 4.96636 2.34861 4.66395C2.48433 3.56158 3.39454 2.55825 4.47851 2.31612C4.77636 2.24959 5.07858 2.24976 5.4616 2.24996ZM12.8576 18.7318C14.5381 19.452 16.4399 19.9281 18.5494 20.1339C18.9359 20.1716 19.0316 20.1775 19.1527 20.1626C19.6255 20.1044 20.1161 19.6593 20.2199 19.1945C20.2458 19.0784 20.25 18.9514 20.25 18.473C20.25 18.0524 20.2472 17.9363 20.231 17.8443C20.1588 17.4355 19.8884 17.0891 19.5093 16.92C19.424 16.8819 19.3121 16.8511 18.904 16.7491L17.2495 16.3354C16.6433 16.1839 16.2439 16.085 15.9277 16.0401C15.6288 15.9977 15.4697 16.0146 15.3437 16.0556C15.2176 16.0966 15.0791 16.1767 14.8625 16.3869C14.6333 16.6094 14.3687 16.9244 13.9679 17.4038L12.8576 18.7318ZM5.26816 11.1423L6.59612 10.0321C7.07553 9.63131 7.39057 9.3667 7.61303 9.13749C7.82328 8.92088 7.90332 8.78236 7.94436 8.65631C7.9854 8.53026 8.00225 8.37116 7.95983 8.07229C7.91494 7.75605 7.81607 7.35668 7.66452 6.75046L7.2509 5.09599C7.14888 4.68791 7.11802 4.57598 7.07997 4.49068C6.91082 4.11156 6.56449 3.84115 6.15566 3.76901C6.06368 3.75277 5.9476 3.74998 5.52697 3.74998C5.04854 3.74998 4.9216 3.75412 4.80551 3.78005C4.34062 3.88389 3.89558 4.37446 3.83737 4.84724C3.82246 4.96837 3.82832 5.0641 3.86603 5.45058C4.07185 7.56011 4.54801 9.46188 5.26816 11.1423Z" fill="#194973" />
+                          </svg>
+                        </span>
+                         +254 (0) 719 439 168
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-2">
+                <div class="header__top-right d-flex justify-content-end align-items-center">
+                  <div class="header__lang ml-30">
+                    <a href="#">Login &nbsp; <i class="fa-solid fa-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="header__bottom header__sticky" id="header-sticky">
+          <div class="container">
+            <div class="mega-menu-wrapper p-relative">
+              <div class="row align-items-center">
+                <div class="col-lg-2 col-md-4 col-sm-5 col-6">
+                  <div class="logo">
+                    <a href="index.html">
+                      <img class="logo-light" src="assets/images/logo.svg" alt="logo" />
+                      <img class="logo-dark" src="assets/images/logo.svg" alt="logo" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-8 col-sm-7 col-6">
+                  <div class="main-menu smooth main-menu-ff-space">
+                    <nav id="mobile-menu" class="d-none d-lg-block">
+                      <ul>
+                        <li>
+                          <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                          <a href="#features">Features</a>
+                        </li>
+                        <li>
+                          <a href="#built-for">Built For</a>
+                        </li>
+                        <li>
+                          <a href="#why">Why</a>
+                        </li>
+                        <li>
+                          <a href="#faqs">FAQs</a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <!-- for wp -->
+                    <!-- for wp -->
+                    <!-- <div class="header__hamburger ml-50 d-none">
+                      <button type="button" class="hamburger-btn offcanvas-open-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </button>
+                    </div> -->
+                    <div class="header__bottom-right d-flex justify-content-end align-items-cener pl-30">
+                      <a href="book-demo.html" class="tp-btn-blue">Book a Demo</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header area end -->
+    <main>
+         <!-- contact form area start -->
+         <section class="booking-form d-flex tex align-items-center p-relative z-index-1 fix">
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-xl-8">
+                     <div class="booking-form-inner contact__style-2">
+                        <h3 class="mb-30">Book a Demo</h3>
+                        <form id="contact-form" action="assets/mail.php" method="POST">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <div class="contact__input-2">
+                                    <input name="name" type="text" placeholder="Enter your name">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="contact__input-2">
+                                    <input name="email" type="email" placeholder="Enter your email">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="contact__input-2">
+                                    <input name="phone" type="text" placeholder="Mobile no">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="contact__input-2">
+                                    <input name="company" type="text" placeholder="Company">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="contact__input-2">
+                                    <select name="company-size" id="company-size">
+                                        <option data-display="Select Company Size">Company Size</option>
+                                        <option value="< 5">< 5 Employees</option>
+                                        <option value="< 50">< 50 Employees</option>
+                                        <option value="< 200">< 200 Employees</option>
+                                        <option value="> 200">> 200 Employees</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="contact__inpt-2">
+                                    <select name="discover" id="discovery">
+                                        <option  data-display="How did you find us?">How did you find us?</option>
+                                        <option value="Social Media">Social Media</option>
+                                        <option value="Search">Search</option>
+                                        <option value="Newsletter">Newsletter</option>
+                                        <option value="Recommendation">Recommendation</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <!-- <div class="col-md-12">
+                                 <div class="contact__input-2">
+                                    <textarea name="message" placeholder="Your message"></textarea>
+                                 </div>
+                              </div> -->
+                              <div class="col-md-12 my-2">
+                                 <div class="contact__agree d-flex align-items-start mb-25">
+                                    <input class="e-check-input" type="checkbox" id="e-agree">
+                                    <label class="e-check-label" for="e-agree">I agree to the JengaApp terms and conditions.</label>
+                                 </div>
+                              </div>
+                              <div class="col-md-5">
+                                 <div class="contact__btn">
+                                    <button type="submit" class="tp-btn">Send Message</button>
+                                 </div>
+                              </div>
+                              <div class="col-md-7">
+                                 <div class="contact__form-call float-md-end">
+                                    <span>Call for Consultation</span>
+                                    <p><a href="tel:2236-384-870"><i class="fa-solid fa-phone-flip"></i> +254 (0) 719 439 168</a></p>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                        <p class="ajax-response"></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- contact form area end -->
+
+    </main>
+
+    <!-- footer area start -->
+    <footer>
+      <div class="footer__area" data-bg-color="footer-bg-grey">
+        <div class="footer__top footer__top-9">
+          <div class="container">
+            <div class="footer__top-9-inner">
+              <div class="row align-items-center">
+                <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-4">
+                  <div class="footer__widget footer__widget-9">
+                    <div class="footer__logo">
+                      <a href="index.html">
+                        <img src="assets/images/logo.svg" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-8">
+                  <div class="footer__widget footer__widget-9">
+                    <div class="footer__widget-content">
+                      <ul id="footer-list-inline-3">
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Contact</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom-9">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-sm-6">
+                <div class="footer__copyright-9">
+                  <p>
+                    Copyright © 2022 by
+                    <a href="#">JengaApp</a>
+                    All Rights Reserved.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer__social-9 text-sm-end">
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- JS here -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/waypoints.js"></script>
+    <script src="assets/js/bootstrap-bundle.js"></script>
+    <script src="assets/js/swiper-bundle.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/meanmenu.js"></script>
+    <script src="assets/js/parallax.js"></script>
+    <script src="assets/js/easing.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+    <script src="assets/js/backtotop.js"></script>
+    <script src="assets/js/nice-select.js"></script>
+    <script src="assets/js/purecounter.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope-pkgd.js"></script>
+    <script src="assets/js/imagesloaded-pkgd.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

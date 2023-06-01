@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Jenga App</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/fav/site.webmanifest" />
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <!-- <link rel="stylesheet" href="assets/css/meanmenu.css" /> -->
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/backtotop.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-pro.css" />
+    <link rel="stylesheet" href="assets/css/spacing.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an
+        <strong>outdated</strong>
+        browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a>
+        to improve your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- pre loader area start -->
+    <div id="loading">
+      <div id="loading-center">
+        <div id="loading-center-absolute">
+          <!-- loading content here -->
+          <div class="preloader__content text-center">
+            <div class="preloader__logo">
+              <img src="assets/images/logo.svg" alt="" />
+            </div>
+            <div id="tp-loading-bar" class="preloader__bar">
+              <div id="tp-loading-line" class="preloader__bar-inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pre loader area end -->
+
+    <!-- back to top start -->
+    <div class="back-to-top-wrapper">
+      <button id="back_to_top" type="button" class="back-to-top-btn">
+        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <!-- back to top end -->
+
+    <!-- header area start -->
+    <header>
+      <div class="header__area header__transparent header__black">
+        <div class="header__top d-none d-lg-block header__bottom-border">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-10">
+                <div class="header__info">
+                  <ul>
+                    <li>
+                      <a href="tel: +254 (0) 719 439 168">
+                        <span>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.4616 2.24996C5.48313 2.24997 5.50491 2.24998 5.52697 2.24998C5.5473 2.24998 5.56737 2.24998 5.58717 2.24997C5.91931 2.24982 6.17764 2.24971 6.41634 2.29183C7.31576 2.45055 8.07769 3.04545 8.44981 3.87952C8.54857 4.10087 8.61111 4.35152 8.69153 4.67378C8.69632 4.69299 8.70118 4.71246 8.70611 4.73219L9.11973 6.38666L9.12878 6.42285C9.26887 6.98313 9.38776 7.45864 9.44494 7.86151C9.50582 8.2904 9.50758 8.70015 9.37068 9.12067C9.23377 9.54119 8.99111 9.87136 8.6894 10.1822C8.40599 10.4742 8.02993 10.7886 7.58684 11.159L7.55823 11.1829L5.946 12.5308C7.24931 14.8902 9.10979 16.7507 11.4692 18.054L12.8171 16.4417L12.841 16.4131C13.2114 15.97 13.5258 15.594 13.8178 15.3106C14.1286 15.0089 14.4588 14.7662 14.8793 14.6293C15.2998 14.4924 15.7096 14.4941 16.1385 14.555C16.5413 14.6122 17.0169 14.7311 17.5772 14.8712L17.6133 14.8802L19.2678 15.2939C19.2875 15.2988 19.307 15.3036 19.3262 15.3084C19.6484 15.3889 19.8991 15.4514 20.1204 15.5502C20.9545 15.9223 21.5494 16.6842 21.7081 17.5836C21.7503 17.8223 21.7501 18.0807 21.75 18.4128C21.75 18.4326 21.75 18.4527 21.75 18.473C21.75 18.4951 21.75 18.5168 21.75 18.5384C21.7502 18.9214 21.7504 19.2236 21.6838 19.5215C21.4417 20.6054 20.4384 21.5156 19.336 21.6514C19.0336 21.6886 18.7738 21.6631 18.4505 21.6314C18.4351 21.6299 18.4195 21.6284 18.4037 21.6268C15.7641 21.3693 13.3884 20.7099 11.3191 19.6701C8.24498 18.1255 5.87444 15.755 4.32982 12.6808C3.29011 10.6116 2.63066 8.2359 2.37312 5.59624C2.37158 5.58049 2.37005 5.5649 2.36854 5.54945C2.33685 5.22622 2.31138 4.96636 2.34861 4.66395C2.48433 3.56158 3.39454 2.55825 4.47851 2.31612C4.77636 2.24959 5.07858 2.24976 5.4616 2.24996ZM12.8576 18.7318C14.5381 19.452 16.4399 19.9281 18.5494 20.1339C18.9359 20.1716 19.0316 20.1775 19.1527 20.1626C19.6255 20.1044 20.1161 19.6593 20.2199 19.1945C20.2458 19.0784 20.25 18.9514 20.25 18.473C20.25 18.0524 20.2472 17.9363 20.231 17.8443C20.1588 17.4355 19.8884 17.0891 19.5093 16.92C19.424 16.8819 19.3121 16.8511 18.904 16.7491L17.2495 16.3354C16.6433 16.1839 16.2439 16.085 15.9277 16.0401C15.6288 15.9977 15.4697 16.0146 15.3437 16.0556C15.2176 16.0966 15.0791 16.1767 14.8625 16.3869C14.6333 16.6094 14.3687 16.9244 13.9679 17.4038L12.8576 18.7318ZM5.26816 11.1423L6.59612 10.0321C7.07553 9.63131 7.39057 9.3667 7.61303 9.13749C7.82328 8.92088 7.90332 8.78236 7.94436 8.65631C7.9854 8.53026 8.00225 8.37116 7.95983 8.07229C7.91494 7.75605 7.81607 7.35668 7.66452 6.75046L7.2509 5.09599C7.14888 4.68791 7.11802 4.57598 7.07997 4.49068C6.91082 4.11156 6.56449 3.84115 6.15566 3.76901C6.06368 3.75277 5.9476 3.74998 5.52697 3.74998C5.04854 3.74998 4.9216 3.75412 4.80551 3.78005C4.34062 3.88389 3.89558 4.37446 3.83737 4.84724C3.82246 4.96837 3.82832 5.0641 3.86603 5.45058C4.07185 7.56011 4.54801 9.46188 5.26816 11.1423Z" fill="#194973" />
+                          </svg>
+                        </span>
+                         +254 (0) 719 439 168
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-2">
+                <div class="header__top-right d-flex justify-content-end align-items-center">
+                  <div class="header__lang ml-30">
+                    <a href="https://dashboard.jengasmart.com">Login &nbsp; <i class="fa-solid fa-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="header__bottom header__sticky" id="header-sticky">
+          <div class="container">
+            <div class="mega-menu-wrapper p-relative">
+              <div class="row align-items-center">
+                <div class="col-lg-2 col-md-4 col-sm-5 col-6">
+                  <div class="logo">
+                    <a href="index.html">
+                      <img class="logo-light" src="assets/images/logo.svg" alt="logo" />
+                      <img class="logo-dark" src="assets/images/logo.svg" alt="logo" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-8 col-sm-7 col-6">
+                  <div class="main-menu smooth main-menu-ff-space">
+                    <nav id="mobile-menu" class="d-none d-lg-block">
+                      <ul>
+                        <li>
+                          <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                          <a href="#features">Features</a>
+                        </li>
+                        <li>
+                          <a href="#built-for">Built For</a>
+                        </li>
+                        <li>
+                          <a href="#why">Why</a>
+                        </li>
+                        <li>
+                          <a href="#faqs">FAQs</a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <!-- for wp -->
+                    <!-- for wp -->
+                    <!-- <div class="header__hamburger ml-50 d-none">
+                      <button type="button" class="hamburger-btn offcanvas-open-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </button>
+                    </div> -->
+                    <div class="header__bottom-right d-flex justify-content-end align-items-cener pl-30">
+                      <a href="book-demo.html" class="tp-btn-blue">Book a Demo</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header area end -->
+    <main>
+      <!-- slider area start -->
+      <section class="slider__area slider__height-5 d-flex align-items-center p-relative z-index-1 fix">
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+              <div class="slider__content-6">
+                <span class="slider__title-pre-6 d-block">
+                  <span class="d-none d-md-inline-block">All in One</span>
+                  Construction Management Software
+                </span>
+                <h3 class="ja-hero-title text-primary">Manage your Projects,</h3>
+                <h3 class="ja-hero-title ja-hero-subtitle">Grow your profits.</h3>
+                <p>Align your team, Drive growth and profits, impress your clients. With JengaApp construction management software, you can finally work smarter and run your construction business-without it letting run you.</p>
+
+                <div class="slider__btn-6">
+                  <a href="book-demo.html" class="tp-btn-border-5 tp-link-btn-3">
+                    Schedule a Demo
+                    <span>
+                      <i class="fa-regular fa-arrow-right"></i>
+                    </span>
+                  </a>
+                </div>
+                <ul class="ja-features">
+                  <li>
+                    <img src="assets/images/check.svg" alt="" />
+                    Align your team
+                  </li>
+                  <li>
+                    <img src="assets/images/check.svg" alt="" />
+                    Drive growth and profits
+                  </li>
+                  <li>
+                    <img src="assets/images/check.svg" alt="" />
+                    Exceed Expectations
+                  </li>
+                </ul>
+                <div class="stars">
+                  <img src="assets/images/ratings.svg" alt="" />
+                </div>
+
+                <!-- <div class="slider__user">
+                           <ul>
+                              <li>
+                                 <a href="home-creative.html#">
+                                    <img src="assets/img/slider/6/user/slider-user-1.jpg" alt="">
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="home-creative.html#">
+                                    <img src="assets/img/slider/6/user/slider-user-2.jpg" alt="">
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="home-creative.html#">
+                                    <img src="assets/img/slider/6/user/slider-user-3.jpg" alt="">
+                                 </a>
+                              </li>
+                           </ul>
+                           <p>User <br>Reviews</p>
+                        </div> -->
+              </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+              <div class="slider__thumb-5 text-end scene-2 overfow-visible">
+                <div class="slider-thumb-5 one">
+                  <img class="slider__thumb-5-1 layer" data-depth=".2" src="assets/images/vector2.svg" alt="" />
+                </div>
+                <div class="slider-thumb-5 two">
+                  <img class="slider__thumb-5-2 layer" data-depth=".3" src="assets/images/hero1.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- slider area end -->
+
+      <!-- featues area start -->
+      <section class="about__area pt-60 pb-40 p-relative" id="features">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-12">
+              <div class="about__section-wrapper-6">
+                <div class="section__title-wrapper-6 mb-125">
+                  <h3 class="section__title-6">
+                    <span class="text-primary" style="display: block">One platform,</span>
+                    <span class="section__title-6-highlight">
+                      to do it all.
+                      <!-- <svg width="201" height="11" viewBox="0 0 201 11" fill="none">
+                        <path class="wow" fill-rule="evenodd" clip-rule="evenodd" d="M9.05453 10.8839C6.20147 10.8982 3.21601 10.7537 1.01886 10.0285C0.864228 9.97744 0.711775 9.9189 0.581885 9.84837C0.517069 9.81318 0.434369 9.76251 0.354554 9.69171C0.281315 9.62675 0.155306 9.49652 0.0910472 9.29127C0.0147649 9.04755 0.05678 8.79832 0.178701 8.60172C0.281012 8.43673 0.415963 8.34474 0.491835 8.3C0.643502 8.21055 0.809844 8.16646 0.918957 8.14164C1.37074 8.03891 2.1664 7.9951 3.00131 7.96916C3.73866 7.94626 4.54731 7.93629 5.32252 7.92673C6.41386 7.91328 7.43888 7.90064 8.10528 7.85387C9.91746 7.72669 11.7311 7.59642 13.5455 7.4661C16.5831 7.24792 19.6228 7.02959 22.6612 6.82535C43.405 5.4309 64.1476 4.25838 84.9012 3.40104C73.7378 3.38875 62.5747 3.32145 51.4104 3.17052C51.416 3.1706 45.4792 3.12884 41.6005 3.07089C40.6265 3.05633 39.7745 3.04068 39.1697 3.02425C38.8685 3.01607 38.6225 3.00754 38.4517 2.99856C38.3692 2.99422 38.2904 2.98909 38.2282 2.98236C38.2053 2.97988 38.1474 2.97354 38.0855 2.95857L38.0844 2.95832C38.0711 2.95532 37.9518 2.92851 37.83 2.84812C37.7811 2.81585 37.5529 2.66179 37.4919 2.34084C37.4176 1.94937 37.6477 1.69174 37.7462 1.60578C37.8448 1.51977 37.941 1.48022 37.9717 1.46789C38.0145 1.4507 38.0506 1.44057 38.0712 1.43521C38.1129 1.42438 38.1486 1.41857 38.1675 1.41571C38.2082 1.40953 38.2494 1.40565 38.2822 1.40297C38.3513 1.39733 38.4421 1.39245 38.5506 1.38795C38.7702 1.37884 39.0963 1.36992 39.5405 1.36112C40.4307 1.34349 41.8145 1.32598 43.8129 1.30893C95.6756 0.866429 147.552 0.567935 199.42 0.727011C199.851 0.728333 200.199 1.07875 200.198 1.50969C200.197 1.94063 199.846 2.28891 199.415 2.28758C194.258 2.27177 189.1 2.26047 183.942 2.2534L183.92 3.66106L182.192 3.63353C181.25 3.61854 180.309 3.60364 179.368 3.58906C174.167 3.51003 168.967 3.45223 163.767 3.41078C163.222 3.408 162.677 3.4057 162.132 3.40394C115.603 3.25364 69.1944 5.26138 22.7659 8.38241C19.7301 8.58648 16.6978 8.80429 13.6633 9.02224C12.2771 9.12181 10.8905 9.22141 9.50289 9.31974C10.7075 9.30671 11.9031 9.26775 13.0333 9.23091L13.1891 9.22583C14.4995 9.18319 15.7267 9.14481 16.7461 9.15881C58.3184 9.72964 100.063 9.23542 141.577 7.09843C146.003 6.8706 150.426 6.56528 154.842 6.18681C156.349 6.05767 157.848 5.91563 159.336 5.72905C159.15 5.72103 158.962 5.71357 158.773 5.70663C157.597 5.66334 156.414 5.64093 155.518 5.62906C154.984 5.62199 154.531 5.61862 154.252 5.61655C154.079 5.61526 153.973 5.61447 153.956 5.6136C153.526 5.5908 153.196 5.22345 153.219 4.79311C153.241 4.36277 153.609 4.03241 154.039 4.05521C154.027 4.05456 154.147 4.05519 154.44 4.05734C154.709 4.05932 155.087 4.06264 155.539 4.06862C156.441 4.08058 157.638 4.10319 158.831 4.14711C160.019 4.19086 161.222 4.25633 162.13 4.35581C162.578 4.4049 162.987 4.46567 163.296 4.5455C163.442 4.58343 163.621 4.63898 163.777 4.72855C163.868 4.78076 164.318 5.05276 164.259 5.6086C164.218 5.99372 164.011 6.2781 163.764 6.46085C163.541 6.62524 163.29 6.70676 163.099 6.75371C162.9 6.80253 162.695 6.82981 162.53 6.84953C162.478 6.85577 162.431 6.86117 162.388 6.86611C162.279 6.87869 162.195 6.88834 162.117 6.9014C159.742 7.29996 157.348 7.53838 154.976 7.74169C150.542 8.12163 146.102 8.42818 141.657 8.65695C100.102 10.796 58.3231 11.2904 16.7247 10.7192C15.7485 10.7058 14.5597 10.7426 13.2399 10.7856L13.0778 10.7909C11.8097 10.8322 10.4348 10.877 9.05453 10.8839Z" fill="currentColor" />
+                      </svg> -->
+                    </span>
+                    <div class="about__text wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1s">
+                      <h4 class="lead-text">Are you a general or specialist contractor working on residential, commercial or infrastructure projects?</h4>
+                      <p>With JengaApp construction management software , you can finally work smarter and run your construction business-without it letting run you.</p>
+
+                      <p>With JengaApp construction management software , you can finally work smarter and run your construction business-without it letting run you.</p>
+                    </div>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="offset-lg-1 col-lg-7 offset-lg-1 features-wrapper" id="features">
+              <div class="section__title-wrapper-6">
+                <div class="row">
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                    <div class="features__item-7 text-left mb-30 white-bg transition-3 wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1s">
+                      <div class="features__icon-7">
+                        <span>
+                          <img src="assets/images/feature1.svg" alt="" />
+                        </span>
+                      </div>
+                      <div class="features__content-7">
+                        <h5 class="features__title-4">Everything in one platform</h5>
+                        <p class="features__desc">JengaApp allows you to track all your key projects in one place across all devices, free up your team from admin work so they can do their best work…impress client.</p>
+                      </div>
+                    </div>
+                    <div class="features__item-7 text-left mb-30 white-bg transition-3 wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1s">
+                      <div class="features__icon-7">
+                        <span>
+                          <img src="assets/images/feature2.svg" alt="" />
+                        </span>
+                      </div>
+                      <div class="features__content-7">
+                        <h5 class="features__title-4">Run every construction site efficiently</h5>
+                        <p class="features__desc">JengaApp allows you to track all your key projects in one place across all devices, free up your team from admin work so they can do their best work…impress client.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6" data-parallax='{"y": -90, "smoothness": 30}'>
+                    <div class="features__item-7 text-left mb-30 white-bg transition-3 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                      <div class="features__icon-7">
+                        <span>
+                          <img src="assets/images/feature3.svg" alt="" />
+                        </span>
+                      </div>
+                      <div class="features__content-7">
+                        <h5 class="features__title-4">Manage finances simply in a seamless way</h5>
+                        <p class="features__desc">JengaApp allows you to track all your key projects in one place across all devices, free up your team from admin work so they can do their best work…impress client.</p>
+                      </div>
+                    </div>
+                    <div class="features__item-7 text-left mb-30 white-bg transition-3 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                      <div class="features__icon-7">
+                        <span>
+                          <img src="assets/images/feature4.svg" alt="" />
+                        </span>
+                      </div>
+                      <div class="features__content-7">
+                        <h5 class="features__title-4">Simplify project planning from start to finish</h5>
+                        <p class="features__desc">JengaApp allows you to track all your key projects in one place across all devices, free up your team from admin work so they can do their best work…impress client.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- about area end -->
+      <!-- biography area start -->
+      <section class="biography__area p-relative pb-110 fix" id="built-for">
+        <div class="biography__slider-content-active">
+          <div class="biography__item biography__height p-relative z-index-1">
+            <div class="biography__bg biography__bg-1" data-background="assets/images/users1.jpg"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-xxl-7 col-xl-8 col-lg-9">
+                  <div class="biography__content p-relative z-index-1">
+                    <div class="biography__meta">
+                      <span>Built For</span>
+                    </div>
+                    <h3 class="biography__title">General Contractors</h3>
+                    <p>Align your team, Drive growth and profits , impress your clients. With JengaApp construction management software , you can finally work smarter and run your construction business-without it letting run you.</p>
+
+                    <!-- <div class="biography__btn mb-50">
+                                 <a href="home-politician.html#" class="tp-btn-border-9 tp-link-btn-3">
+                                    Continue Reading 
+                                    <span>
+                                       <i class="fa-regular fa-angle-right"></i>
+                                    </span>
+                                 </a>
+                              </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="biography__item biography__height p-relative z-index-1">
+            <div class="biography__bg biography__bg-1" data-background="assets/images/users2.jpg"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-xxl-7 col-xl-8 col-lg-9">
+                  <div class="biography__content p-relative z-index-1">
+                    <div class="biography__meta">
+                      <span>Built For</span>
+                    </div>
+                    <h3 class="biography__title">Property Developers</h3>
+                    <p>Track key milestones in your developments with ease with clean, detailed reports to easily share with your investors. Keep all your stakeholders aligned with JengaApp platform.</p>
+
+                    <!-- <div class="biography__btn mb-50">
+                                 <a href="home-politician.html#" class="tp-btn-border-9 tp-link-btn-3">
+                                    Continue Reading 
+                                    <span>
+                                       <i class="fa-regular fa-angle-right"></i>
+                                    </span>
+                                 </a>
+                              </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="biography__item biography__height p-relative z-index-1">
+            <div class="biography__bg biography__bg-1" data-background="assets/images/users3.jpg"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-xxl-7 col-xl-8 col-lg-9">
+                  <div class="biography__content p-relative z-index-1">
+                    <div class="biography__meta">
+                      <span>Built For</span>
+                    </div>
+                    <h3 class="biography__title">Specialists / Remodellers</h3>
+                    <p>Use our platform to track multiple projects right at your fingertips. Track progress and costs from project start to finish. Increase your profits and stand out among your peers.</p>
+
+                    <!-- <div class="biography__btn mb-50">
+                                 <a href="home-politician.html#" class="tp-btn-border-9 tp-link-btn-3">
+                                    Continue Reading 
+                                    <span>
+                                       <i class="fa-regular fa-angle-right"></i>
+                                    </span>
+                                 </a>
+                              </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="biography__item biography__height p-relative z-index-1">
+            <div class="biography__bg biography__bg-1" data-background="assets/images/users4.jpg"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-xxl-7 col-xl-8 col-lg-9">
+                  <div class="biography__content p-relative z-index-1">
+                    <div class="biography__meta">
+                      <span>Built For</span>
+                    </div>
+                    <h3 class="biography__title">Home Builders</h3>
+                    <p>Track your projects back home right on your device from anywhere. Stay updated with key progress and milestone reports in real-time.</p>
+
+                    <!-- <div class="biography__btn mb-50">
+                                 <a href="home-politician.html#" class="tp-btn-border-9 tp-link-btn-3">
+                                    Continue Reading 
+                                    <span>
+                                       <i class="fa-regular fa-angle-right"></i>
+                                    </span>
+                                 </a>
+                              </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-12">
+              <div class="biography__slider">
+                <div class="biography__slider-nav d-none">
+                  <div class="biography__year">
+                    <p>
+                      <span></span>
+                      Contractors
+                    </p>
+                  </div>
+                  <div class="biography__year">
+                    <p>
+                      <span></span>
+                      Property Developers
+                    </p>
+                  </div>
+                  <div class="biography__year">
+                    <p>
+                      <span></span>
+                      Specialists & Remodellers
+                    </p>
+                  </div>
+                  <div class="biography__year">
+                    <p>
+                      <span></span>
+                      Home Owners
+                    </p>
+                  </div>
+                </div>
+                <div class="biography__slider-nav">
+                  <div class="biography__year">
+                    <p>
+                      <span class="tp-biography-bg include-bg"></span>
+                      <span class="tp-biography-bg is-solid include-bg"></span>
+                      Contractors
+                    </p>
+                  </div>
+                  <div class="biography__year">
+                    <p>
+                      <span class="tp-biography-bg include-bg"></span>
+                      <span class="tp-biography-bg is-solid include-bg"></span>
+                      Property Developers
+                    </p>
+                  </div>
+                  <div class="biography__year">
+                    <p>
+                      <span class="tp-biography-bg include-bg"></span>
+                      <span class="tp-biography-bg is-solid include-bg"></span>
+                      Specialists/ Remodellers
+                    </p>
+                  </div>
+                  <div class="biography__year">
+                    <p>
+                      <span class="tp-biography-bg include-bg"></span>
+                      <span class="tp-biography-bg is-solid include-bg"></span>
+                      Home Owners
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- biography area end -->
+
+      <!-- benefits start -->
+      <section class="about__area pt-60 pb-60 p-relative z-index-1" style="background-image: url('assets/images/benefits-bg.png'); background-repeat: no-repeat" id="why">
+        <div class="container">
+          <div class="row align-items-center mb-1 mb-lg-5">
+            <div class="col-6 col-xxl-5 col-xl-5 col-lg-5 d-none d-lg-block">
+              <div class="wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                <div class="wow">
+                  <img class="benefits-image" src="assets/images/benefits1.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 offset-lg-1">
+              <div class="about__wrapper-5 pr-40 mb-10 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="section__title-wrapper-5 mb-25">
+                  <h3 class="section__title-6">Update your clients without any hassle</h3>
+                </div>
+                <p>Clients crave information about the status of their build – JengaApp gives it to them. Instead of constant emails or texts, they can see what’s happening without any extra effort from your team.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mb-1 mb-lg-5">
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+              <div class="about__wrapper-5 pr-40 mb-10 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="section__title-wrapper-5 mb-25">
+                  <h3 class="section__title-6">No more delays, and cost errors</h3>
+                </div>
+                <p>When details slip through the cracks, it’s inevitable: mistakes happen. JengaApp keeps track of all key activities and changes. Have an extra eye for success!</p>
+              </div>
+            </div>
+            <div class="col-xxl-5 col-xl-5 col-lg-5 offset-1 d-none d-lg-block">
+              <div class="wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                <div class="wow">
+                  <img class="benefits-image" src="assets/images/benefits2.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mb-1 mb-lg-5">
+            <div class="col-xxl-5 col-xl-5 col-lg-5 d-none d-lg-block">
+              <div class="wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                <div class="wow">
+                  <img class="benefits-image" src="assets/images/benefits3.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 offset-lg-1">
+              <div class="about__wrapper-5 pr-40 mb-10 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="section__title-wrapper-5 mb-25">
+                  <h3 class="section__title-6">Localized for your needs</h3>
+                </div>
+                <p>JengaApp is built for Africa with Africa in mind. Adapted to the unique needs on the ground while maintaining global standards of execution. We built with you in mind!</p>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mb-1 mb-lg-5">
+            <div class="col-xxl-6 col-xl-6 col-lg-6">
+              <div class="about__wrapper-5 pr-40 mb-10 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                <div class="section__title-wrapper-5 mb-25">
+                  <h3 class="section__title-6">Stand out from the competition</h3>
+                </div>
+                <p>Don’t be the contractor who’s stuck on paper and pen, struggling to keep up with a massive amount of ever-changing information. Be the contractor who wins more jobs by delivering a professional, digital experience clients will tell their friends about.</p>
+              </div>
+            </div>
+            <div class="col-xxl-5 col-xl-5 col-lg-5 offset-1 d-none d-lg-block">
+              <div class="wow fadeInRight" data-wow-delay=".7s" data-wow-duration="1s">
+                <div class="wow">
+                  <img class="benefits-image" src="assets/images/benefits4.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- benefits end -->
+
+      <!-- testimonial area start -->
+      <section class="testimonial__area p-relative z-index-1 primary-bg pt-60 pb-90">
+        <div class="testimoinal__shape">
+          <img class="testimonial__shape-1" alt="" />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-6 col-lg-6">
+              <div class="tesimonial__wrapper-3">
+                <div class="section__title-wrapper-3 mb-50">
+                  <span class="section__title-pre-3">Testimonials</span>
+                  <h3 class="section__title-6 text-blue-3">What our clients say about us</h3>
+                </div>
+                <div class="mb-95">
+                  <p class="text-white">JengaApp, a comprehensive construction management software, has been instrumental in transforming the operations of various stakeholders within the construction industry.</p>
+                </div>
+                <div class="testimonial__item-3 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                  <div class="testimonial__avater-3 mb-35 d-sm-flex align-items-center">
+                    <div class="testimonial__avater-thumb-3">
+                      <img src="assets/images/users/user-10.jpg" alt="" />
+                    </div>
+                    <div class="tesimonial__avater-info-3">
+                      <h4 class="testimonial__avater-title-3">Timothy</h4>
+                      <span class="testimonial__avater-designation-3">Quantity Surveyor.</span>
+                    </div>
+                  </div>
+                  <div class="testimonial__content-3">
+                    <h4>“Working with JengaApp was amazing”</h4>
+                    <p>JengaApp has greatly helped me generate take off estimates and keep track of budget overruns. I am also able to keep all my stakeholders informed.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-6 col-lg-6">
+              <div class="testimonial__item-wrapper-3">
+                <div class="testimonial__item-3 mb-30 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
+                  <div class="testimonial__avater-3 mb-35 d-sm-flex align-items-center">
+                    <div class="testimonial__avater-thumb-3">
+                      <img src="assets/images/users/user-9.jpg" alt="" />
+                    </div>
+                    <div class="tesimonial__avater-info-3">
+                      <h4 class="testimonial__avater-title-3">Wendy</h4>
+                      <span class="testimonial__avater-designation-3">Architect</span>
+                    </div>
+                  </div>
+                  <div class="testimonial__content-3">
+                    <h4>“The services is awesome”</h4>
+                    <p>JengaApp allowed me to manage my construction projects with ease ensuring that projects aligned well with client expectations and were completed on time and on budget.</p>
+                  </div>
+                </div>
+                <div class="testimonial__item-3 wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
+                  <div class="testimonial__avater-3 mb-35 d-sm-flex align-items-center">
+                    <div class="testimonial__avater-thumb-3">
+                      <img src="assets/images/users/user-8.jpg" alt="" />
+                    </div>
+                    <div class="tesimonial__avater-info-3">
+                      <h4 class="testimonial__avater-title-3">David</h4>
+                      <span class="testimonial__avater-designation-3">Construction Manager</span>
+                    </div>
+                  </div>
+                  <div class="testimonial__content-3">
+                    <h4>“I'm very happy to work with JengaApp"</h4>
+                    <p>I am able to receive timely updates across multiple sites and share vital reports with all stakeholders on important milestones. A true life saver.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- testimonial area end -->
+      <!-- faq area start -->
+      <section class="faq__area pb-120" id="faqs">
+        <div class="container">
+          <div class="faq__inner p-relative">
+            <div class="faq__text d-none d-lg-block">
+              <h3 data-text="faq">faq</h3>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-xxl-9 col-xl-9 col-lg-9">
+                <div class="faq__wrapper tp-accordion pt-65">
+                  <div class="accordion" id="faqaccordion">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          What is a construction management platform?
+                          <span class="accordion-btn"></span>
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqaccordion">
+                        <div class="accordion-body">
+                          <p>A construction management platform is software application that assists you as a builder/contractor better manage and track your construction project from anywhere.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Can I cancel my account at any time?
+                          <span class="accordion-btn"></span>
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqaccordion">
+                        <div class="accordion-body">
+                          <p>No lock in contract. You can cancel anytime.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          What happens after the license expires?
+                          <span class="accordion-btn"></span>
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqaccordion">
+                        <div class="accordion-body">
+                          <p>You will be notified of your license expiration and provided details on how to renew it by our support team.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          How long do I get support & updates?
+                          <span class="accordion-btn"></span>
+                        </button>
+                      </h2>
+                      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqaccordion">
+                        <div class="accordion-body">
+                          <p>The Jengaapp provides all round support for all our clients with onboarding support & setup included to ensure your success.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- faq area end -->
+    </main>
+
+    <!-- footer area start -->
+    <footer>
+      <div class="footer__area" data-bg-color="footer-bg-grey">
+        <div class="footer__top footer__top-9">
+          <div class="container">
+            <div class="footer__top-9-inner">
+              <div class="row align-items-center">
+                <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-4">
+                  <div class="footer__widget footer__widget-9">
+                    <div class="footer__logo">
+                      <a href="index.html">
+                        <img src="assets/images/logo.svg" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-9 col-xl-9 col-lg-6 col-md-8">
+                  <div class="footer__widget footer__widget-9">
+                    <div class="footer__widget-content">
+                      <ul id="footer-list-inline-3">
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Contact</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom-9">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-sm-6">
+                <div class="footer__copyright-9">
+                  <p>
+                    Copyright © 2022 by
+                    <a href="#">JengaApp</a>
+                    All Rights Reserved.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer__social-9 text-sm-end">
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- JS here -->
+    <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/waypoints.js"></script>
+    <script src="assets/js/bootstrap-bundle.js"></script>
+    <script src="assets/js/swiper-bundle.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/meanmenu.js"></script>
+    <script src="assets/js/parallax.js"></script>
+    <script src="assets/js/easing.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+    <script src="assets/js/backtotop.js"></script>
+    <script src="assets/js/nice-select.js"></script>
+    <script src="assets/js/purecounter.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope-pkgd.js"></script>
+    <script src="assets/js/imagesloaded-pkgd.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

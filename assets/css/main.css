@@ -15523,6 +15523,7 @@ input[type="color"] {
 .ja-hero-title.ja-hero-subtitle {
   color: var(--color-blue-2);
   font-weight: 200;
+  line-height: 110%;
 }
 @media only screen and (min-width: 1600px) and (max-width: 1699px) {
   .ja-hero-title {
@@ -53907,4 +53908,7 @@ blockquote cite::before {
 .booking-form {
     background: #f0f8fc;
     padding: 170px 0 80px;
+}
+.backgroundBg, .backgroundSecBg {
+  background-color: none !important;
 }

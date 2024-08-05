@@ -53912,3 +53912,52 @@ blockquote cite::before {
 .backgroundBg, .backgroundSecBg {
   background-color: none !important;
 }
+
+
+
+[data-custom-class="body"],
+[data-custom-class="body"] * {
+  background: transparent !important;
+}
+[data-custom-class="title"],
+[data-custom-class="title"] * {
+  font-size: 26px !important;
+  margin: 16px 0 10px;
+}
+[data-custom-class="subtitle"],
+[data-custom-class="subtitle"] * {
+  color: #595959 !important;
+  font-size: 14px !important;
+}
+[data-custom-class="heading_1"],
+[data-custom-class="heading_1"] * {
+  font-size: 19px !important;
+  margin:20px 0 10px
+}
+[data-custom-class="heading_2"],
+[data-custom-class="heading_2"] * {
+  font-size: 17px !important;
+  margin:20px 0 10px
+}
+[data-custom-class="body_text"],
+[data-custom-class="body_text"] * {
+  color: #595959 !important;
+  font-size: 14px !important;
+}
+[data-custom-class="link"],
+[data-custom-class="link"] * {
+  color: #3030f1 !important;
+  font-size: 14px !important;
+  word-break: break-word !important;
+}
+.termly {
+    background: #fff;
+    padding: 30px;
+    border-radius: 4px;
+}
+.termly ul {
+  margin-left: 2rem;
+}
+.col-12.termly.t-c div {
+    padding: 4px 0;
+}
